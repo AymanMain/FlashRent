@@ -1,3 +1,5 @@
+package org.com.flashrent.services;
+
 import org.com.flashrent.entities.Owner;
 import org.com.flashrent.repositories.OwnerRepo;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to your Real Estate Portal</title>
+</head>
+<body>
+<h1>Welcome to your Real Estate Portal</h1>
+<h2>Are you a...</h2>
+<ul>
+    <li><a th:href="@{../owners/login}">Property Owner</a></li>
+    <li><a th:href="@{../locataires/login}">Tenant</a></li>
+</ul>
+</body>
+</html>
