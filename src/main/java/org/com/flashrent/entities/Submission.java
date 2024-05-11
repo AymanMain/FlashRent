@@ -19,7 +19,7 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "locataire_id")
-    private Locataire tenant;
+    private Locataire locataire;
 
     @ManyToOne
     @JoinColumn(name = "property_id")

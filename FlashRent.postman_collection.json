@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "2d7134de-e244-46da-b2af-35c05b393d84",
+		"name": "FlashRent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28536842"
+	},
+	"item": [
+		{
+			"name": "Owner Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"owner@example.com\",\r\n    \"motDePasse\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/owner/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Owner Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"owner@example.com\",\r\n    \"motDePasse\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/owner/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Property",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"Property Title\",\r\n    \"adresse\": \"Property Address\",\r\n    \"ownerId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/property/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Properties Owned by Owner",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Property",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\": \"New Property Title\",\r\n    \"adresse\": \"New Property Address\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/property/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Property",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/property/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Register Locataire",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"locataire@example.com\",\r\n    \"motDePasse\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/locataire/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Locataire",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"locataire@example.com\",\r\n    \"motDePasse\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/locataire/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/properties/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Rent Submission",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"locataireId\": 1,\r\n    \"propertyId\": 2,\r\n    \"rentAmount\": 1000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/submission/rent"
+			},
+			"response": []
+		},
+		{
+			"name": "???Get Submission By Locataire",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/submission/bylocataire?locataireId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"submission",
+						"bylocataire"
+					],
+					"query": [
+						{
+							"key": "locataireId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Submission",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/submission/1"
+			},
+			"response": []
+		}
+	]
+}
