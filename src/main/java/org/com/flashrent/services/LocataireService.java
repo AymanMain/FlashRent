@@ -1,6 +1,7 @@
 package org.com.flashrent.services;
 
 import org.com.flashrent.entities.Locataire;
+import org.com.flashrent.entities.Owner;
 import org.com.flashrent.repositories.LocataireRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,5 +38,11 @@ public class LocataireService {
     public void registerLocataire(Locataire locataire) {
         locataireRepository.save(locataire);
     }
+    public void save(Locataire locataire) {
+        locataireRepository.save(locataire);
+    }
 
+    public Locataire findByEmail(String email) {
+        return locataireRepository.findByEmail(email).orElse(null);
+    }
 }

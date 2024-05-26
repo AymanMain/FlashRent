@@ -1,15 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to your Real Estate Portal</title>
+    <title>FlashRent</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+        }
+        .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+        }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .about-us {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 100px; /* Add space above the About Us section */
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to your Real Estate Portal</h1>
-<h2>Are you a...</h2>
-<ul>
-    <li><a th:href="@{../owners/login}">Property Owner</a></li>
-    <li><a th:href="@{../locataires/login}">Tenant</a></li>
-</ul>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2>Welcome to FlashRent!</h2>
+        <p class="lead text-muted">Choose your role to proceed</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 box-shadow">
+                <img src="https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/9b0f260f468a4621ba4d48062955c2a0.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1748273005&x-signature=P4LeOh6JWvJEXxkC3JK1258nA%2F0%3D" class="card-img-top" alt="Owner">
+                <div class="card-body">
+                    <h5 class="card-title">Proprietaire</h5>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="location.href='/owner/login'">Yes, I am</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 box-shadow">
+                <img src="https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/e8cf05f992da4a2b8cd90e67e58b7cce.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1748272891&x-signature=5E9G5QbXidhIxvGet3MdwNwq2Bs%3D" class="card-img-top" alt="Tenant">
+                <div class="card-body">
+                    <h5 class="card-title">Locataire</h5>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="location.href='/locataire/login'">Yes, I am</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container about-us">
+        <h5>About Us</h5>
+        <p>We are Moad El Jamhari and Aymen Elkaroussi, 4th year engineering students at EMSI. For any inquiries, feel free to contact us:</p>
+        <p><strong>Moad El Jamhari</strong><br>Email: mimoeljamhari2002@gmail.com<br>Phone: 0653494731</p>
+        <p><strong>Aymen Elkaroussi</strong><br>Email: damoni@gmail.com<br>Phone: 0652147874</p>
+    </div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

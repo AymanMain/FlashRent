@@ -23,4 +23,9 @@ public class Owner {
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private Set<Property> properties;
+
+    public String getPassword() {
+        return this.motDePasse;
+    }
+
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Locataire Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="text-center">
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <!-- Jumbotron -->
+    <div class="container py-4">
+        <h2 class="fw-bold mb-5">Espace Locataire </h2>
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card cascading-right bg-body-tertiary" style="backdrop-filter: blur(30px);">
+                    <div class="card-body p-5 shadow-5 text-center">
+                        <h2 class="fw-bold mb-5">Please sign in</h2>
+                        <form class="form-signin" th:action="@{/locataire/login}" method="post">
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Email address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="motDePasse">Password</label>
+                                <input type="password" id="motDePasse" name="motDePasse" class="form-control" placeholder="Password" required>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                            <p class="mt-5 mb-3 text-muted">Not a member? <a href="/locataire/register">Register Here</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="https://webgenery-images.s3.eu-west-1.amazonaws.com/564DE3C55D91B313811847/espace_dynamique/1002/282-A.jpg" class="w-100 rounded-4 shadow-4" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

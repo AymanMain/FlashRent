@@ -31,13 +31,23 @@ public class OwnerService {
     }
 
     public void registerOwner(Owner owner) {
+        ownerRepository.save(owner);
     }
 
     public boolean authenticateOwner(String email, String password) {
-        return false;
+        Owner owner = ownerRepository.findByEmail(email);
+        return owner != null && owner.getPassword().equals(password);
     }
 
-    public List<Property> getOwnerProperties() {
-            return null;
+    public List<Property> getOwnerProperties(Owner owner) {
+        return (List<Property>) owner.getProperties();
+    }
+
+    public void save(Owner owner) {
+        ownerRepository.save(owner);
+    }
+
+    public Owner findByEmail(String email) {
+        return ownerRepository.findByEmail(email);
     }
 }
