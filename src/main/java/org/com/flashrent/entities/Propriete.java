@@ -31,5 +31,8 @@ public class Propriete {
     @OneToMany(mappedBy = "propriete")
     private List<Soumission> soumissions;
 
+    @ManyToOne
+    private Locataire locataire;
+
     // Getters and Setters
 }

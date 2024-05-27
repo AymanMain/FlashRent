@@ -18,7 +18,6 @@ public class Locataire {
     private Long id;
     private String nom;
     private String prenom;
-    @Getter
     private String email;
     private String motDePasse;
 
