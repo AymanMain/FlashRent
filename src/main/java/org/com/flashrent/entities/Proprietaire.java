@@ -1,35 +1,35 @@
 package org.com.flashrent.entities;
-
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-
-
+import java.util.Set;
 import java.util.List;
 
-@Getter
 @Setter
+@Getter
 @Entity
-public class Locataire {
+public class Proprietaire {
 
+    // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String nom;
     private String prenom;
-    @Getter
     private String email;
     private String motDePasse;
 
-    @OneToMany(mappedBy = "locataire")
+    @OneToMany(mappedBy = "proprietaire")
     private List<Propriete> proprietes;
 
-    // Constructeur par défaut de JPA
-    public Locataire() {}
+    // Constructeur par défaut de JPA 
+    public Proprietaire() {}
 
     // Constructeur
-    public Locataire(String nom, String prenom, String email, String motDePasse) {
+    public Proprietaire(String nom, String prenom, String email, String motDePasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
