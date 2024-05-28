@@ -3,6 +3,7 @@ package org.com.flashrent.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 import java.util.List;
 
@@ -25,10 +26,13 @@ public class Propriete {
     private boolean fumeur;
     private boolean animauxDomestiques;
 
+    @OneToMany(mappedBy = "propriete", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Image> images;
+
     @ManyToOne
     private Proprietaire proprietaire;
 
-    @OneToMany(mappedBy = "propriete")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "propriete")
     private List<Soumission> soumissions;
 
     @ManyToOne
@@ -49,5 +53,11 @@ public class Propriete {
         this.fumeur = fumeur;
         this.animauxDomestiques = animauxDomestiques;
         this.proprietaire = proprietaire;
+    }
+    public String getImageBase64() {
+        if (images != null && !images.isEmpty()) {
+            return images.get(0).getImageBase64();
+        }
+        return null;
     }
 }

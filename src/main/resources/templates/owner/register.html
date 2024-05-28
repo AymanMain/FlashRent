@@ -15,7 +15,7 @@
                 <div class="card cascading-right bg-body-tertiary" style="backdrop-filter: blur(30px);">
                     <div class="card-body p-5 shadow-5 text-center">
                         <h2 class="fw-bold mb-5">Please register</h2>
-                        <form class="form-signin" th:action="@{/owner/register}" method="post">
+                        <form class="form-signin" th:action="@{/templates/owner/register}" method="post">
                             <!-- Nom input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="nom">Nom</label>
@@ -43,7 +43,7 @@
                             <!-- Submit button -->
                             <button class="btn btn-primary btn-block mb-4" type="submit">Register</button>
 
-                            <p class="mt-5 mb-3 text-muted">Already a member? <a th:href="@{/owner/login}">Login Here</a></p>
+                            <p class="mt-5 mb-3 text-muted">Already a member? <a th:href="@{/templates/owner/login}">Login Here</a></p>
                         </form>
                     </div>
                 </div>

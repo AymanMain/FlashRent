@@ -2,20 +2,56 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Owner Dashboard</title>
-    <!-- Include Bootstrap CSS -->
+    <title>Tableau de bord du propriétaire</title>
+    <!-- Inclusion de Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
-    <h1>Owner Dashboard</h1>
-    <div class="mt-4">
-        <a th:href="@{/owner/add}" class="btn btn-primary">Add Property</a>
-        <a th:href="@{/owner/details}" class="btn btn-primary">View Properties</a>
-        <a th:href="@{/owner/submission-list}" class="btn btn-primary">View Submissions</a>
+    <h1>Tableau de bord du propriétaire</h1>
+    <div class="mb-3">
+        <a th:href="@{/owner/add}" class="btn btn-primary">Ajouter une propriété</a>
+        <a th:href="@{/owner/submission-list}" class="btn btn-primary">Voir les soumissions</a>
     </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Adresse</th>
+            <th>Prix</th>
+            <th>Nombre de chambres</th>
+            <th>Nombre de bains</th>
+            <th>Superficie</th>
+            <th>Fumeur</th>
+            <th>Animaux domestiques</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="propriete : ${listProprietes}">
+            <td th:text="${propriete.nom}"></td>
+            <td th:text="${propriete.description}"></td>
+            <td th:text="${propriete.adresse}"></td>
+            <td th:text="${propriete.prix}"></td>
+            <td th:text="${propriete.nombreDeChambres}"></td>
+            <td th:text="${propriete.nombreDeBains}"></td>
+            <td th:text="${propriete.superficie}"></td>
+            <td th:text="${propriete.fumeur ? 'Oui' : 'Non'}"></td>
+            <td th:text="${propriete.animauxDomestiques ? 'Oui' : 'Non'}"></td>
+            <td>
+                <a th:href="@{/propriete/edit/{id}(id=${propriete.id})}" class="btn btn-default btn-primary mb-1">Modifier</a>
+                <form th:action="@{/propriete/delete/{id}(id=${propriete.id})}" th:method="post" style="display: inline">
+                    <input type="submit" value="Supprimer" class="btn btn-danger mb-1" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette propriété ?')">
+                </form>
+                <a th:href="@{/propriete/submissions/{id}(id=${propriete.id})}" class="btn btn-dark mb-1">Consulter les Soumissions</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<!-- Include Bootstrap JS -->
+<!-- Inclusion de Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
