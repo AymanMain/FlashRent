@@ -35,8 +35,8 @@ public class ProprieteController {
     @GetMapping("/edit/{id}")
     public String showEditPropertyForm(@PathVariable Long id, Model model) {
         Propriete propriete = proprieteService.getProprieteById(id);
-        model.addAttribute("propriete", propriete); // Envoyer la propriété à modifier à la vue
-        return "editProperty"; // retourner la vue editProperty
+        model.addAttribute("propriete", propriete); // Ajouter la propriété à modifier au modèle
+        return "editProperty"; // retourner la vue 'editProperty'
     }
 
     @PostMapping("/edit")
@@ -50,9 +50,9 @@ public class ProprieteController {
     }
 
     @PostMapping("/delete/{id}")
-    public ResponseEntity<Void> deletePropriete(@PathVariable("id") Long id) {
+    public String deletePropriete(@PathVariable("id") Long id) {
         proprieteService.deletePropriete(id);
-        return ResponseEntity.ok().build();
+        return "redirect:/owner/dashboard";
     }
 
     @GetMapping("/submissions/{id}")
@@ -90,4 +90,5 @@ public class ProprieteController {
 
         return "redirect:/propriete/all";
     }
+
 }

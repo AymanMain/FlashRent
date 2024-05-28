@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier une propriété</title>
+    <!-- Inclusion de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Modifier une propriété</h1>
+    <form method="post" th:action="@{/propriete/edit}" th:object="${propriete}">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group">
+            <label>Nom</label>
+            <input type="text" th:field="*{nom}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" th:field="*{description}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Adresse</label>
+            <input type="text" th:field="*{adresse}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Prix</label>
+            <input type="text" th:field="*{prix}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre de chambres</label>
+            <input type="text" th:field="*{nombreDeChambres}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre de bains</label>
+            <input type="text" th:field="*{nombreDeBains}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Superficie</label>
+            <input type="text" th:field="*{superficie}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Fumeur</label>
+            <input type="checkbox" th:field="*{fumeur}" class="form-check-input"/>
+        </div>
+
+        <div class="form-group">
+            <label>Animaux domestiques</label>
+            <input type="checkbox" th:field="*{animauxDomestiques}" class="form-check-input"/>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Vali
