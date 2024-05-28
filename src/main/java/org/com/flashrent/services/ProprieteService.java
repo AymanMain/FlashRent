@@ -36,4 +36,12 @@ public class ProprieteService {
     public void deletePropriete(Long id) {
         proprieteRepository.deleteById(id);
     }
+
+    public List<Propriete> getProprietesByProprietaire(Long proprietaireId) {
+        return proprieteRepository.findByProprietaireId(proprietaireId);
+    }
+
+    public List<Propriete> getAvailableProprietes() {
+        return proprieteRepository.findByLocataireIsNull();
+    }
 }

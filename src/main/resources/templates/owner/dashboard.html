@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>Owner Dashboard</title>
     <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
     <h1>Owner Dashboard</h1>
-    <div class="list-group mt-4">
-        <a th:href="@{/properties/add}" class="list-group-item list-group-item-action">Add Property</a>
-        <a th:href="@{/properties}" class="list-group-item list-group-item-action">View Properties</a>
-        <a th:href="@{/proprietes}" class="list-group-item list-group-item-action">View Submissions</a>
+    <div class="mt-4">
+        <a th:href="@{/owner/add}" class="btn btn-primary">Add Property</a>
+        <a th:href="@{/owner/details}" class="btn btn-primary">View Properties</a>
+        <a th:href="@{/owner/submission-list}" class="btn btn-primary">View Submissions</a>
     </div>
 </div>
 <!-- Include Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -48,4 +48,16 @@ public class SoumissionController {
         soumissionService.deleteSoumission(id);
         return ResponseEntity.ok("La soumission avec l'ID " + id + " a été supprimée avec succès");
     }
+
+    @GetMapping("/propriete/{proprieteId}")
+    public ResponseEntity<List<Soumission>> getSoumissionsByPropriete(@PathVariable Long proprieteId) {
+        List<Soumission> soumissions = soumissionService.getSoumissionsByPropriete(proprieteId);
+        return ResponseEntity.ok(soumissions);
+    }
+
+    @GetMapping("/locataire/{locataireId}")
+    public ResponseEntity<List<Soumission>> getSoumissionsByLocataire(@PathVariable Long locataireId) {
+        List<Soumission> soumissions = soumissionService.getSoumissionsByLocataire(locataireId);
+        return ResponseEntity.ok(soumissions);
+    }
 }

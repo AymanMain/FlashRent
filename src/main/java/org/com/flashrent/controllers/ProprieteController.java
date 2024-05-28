@@ -21,31 +21,37 @@ public class ProprieteController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Propriete>> getAllProprietes() {
-        List<Propriete> proprietes = proprieteService.getProprietes();
-        return ResponseEntity.ok(proprietes);
+        return ResponseEntity.ok(proprieteService.getProprietes());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Propriete> getProprieteById(@PathVariable Long id) {
-        Propriete propriete = proprieteService.getProprieteById(id);
-        return ResponseEntity.ok(propriete);
+        return ResponseEntity.ok(proprieteService.getProprieteById(id));
     }
 
     @PostMapping("/add")
     public ResponseEntity<Propriete> addPropriete(@RequestBody Propriete propriete) {
-        Propriete newPropriete = proprieteService.addPropriete(propriete);
-        return ResponseEntity.ok(newPropriete);
+        return ResponseEntity.ok(proprieteService.addPropriete(propriete));
     }
 
     @PutMapping("/update")
     public ResponseEntity<Propriete> updatePropriete(@RequestBody Propriete propriete) {
-        Propriete updatePropriete = proprieteService.updatePropriete(propriete);
-        return ResponseEntity.ok(updatePropriete);
+        return ResponseEntity.ok(proprieteService.updatePropriete(propriete));
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePropriete(@PathVariable Long id) {
         proprieteService.deletePropriete(id);
         return ResponseEntity.ok("La propriété avec l'ID " + id + " a été supprimée avec succès");
+    }
+
+    @GetMapping("/proprietaire/{proprietaireId}")
+    public ResponseEntity<List<Propriete>> getProprietesByProprietaire(@PathVariable Long proprietaireId) {
+        return ResponseEntity.ok(proprieteService.getProprietesByProprietaire(proprietaireId));
+    }
+
+    @GetMapping("/available")
+    public ResponseEntity<List<Propriete>> getAvailableProprietes() {
+        return ResponseEntity.ok(proprieteService.getAvailableProprietes());
     }
 }

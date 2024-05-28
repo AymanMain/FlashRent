@@ -1,7 +1,6 @@
 package org.com.flashrent.entities;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +10,6 @@ import lombok.Setter;
 @Entity
 public class Soumission {
 
-    // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -35,5 +33,4 @@ public class Soumission {
         this.propriete = propriete;
         this.locataire = locataire;
     }
-
 }

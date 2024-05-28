@@ -17,28 +17,31 @@ public class SoumissionService {
         this.soumissionRepository = soumissionRepository;
     }
 
-    // Récupérer toutes les soumissions
     public List<Soumission> getSoumissions() {
         return soumissionRepository.findAll();
     }
 
-    // Récupérer une soumission par son ID
     public Soumission getSoumissionById(Long id) {
         return soumissionRepository.findById(id).orElse(null);
     }
 
-    // Ajouter une nouvelle soumission
     public Soumission addSoumission(Soumission soumission) {
         return soumissionRepository.save(soumission);
     }
 
-    // Mettre à jour une soumission existante
     public Soumission updateSoumission(Soumission soumission) {
         return soumissionRepository.save(soumission);
     }
 
-    // Supprimer une soumission
     public void deleteSoumission(Long id) {
         soumissionRepository.deleteById(id);
+    }
+
+    public List<Soumission> getSoumissionsByPropriete(Long proprieteId) {
+        return soumissionRepository.findByProprieteId(proprieteId);
+    }
+
+    public List<Soumission> getSoumissionsByLocataire(Long locataireId) {
+        return soumissionRepository.findByLocataireId(locataireId);
     }
 }

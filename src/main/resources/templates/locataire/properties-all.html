@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Properties</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>All Properties</h1>
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Number of Rooms</th>
+            <th>Number of Bathrooms</th>
+            <th>Surface Area</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through properties here -->
+        <tr th:each="property : ${properties}">
+            <td th:text="${property.id}"></td>
+            <td th:text="${property.nom}"></td>
+            <td th:text="${property.description}"></td>
+            <td th:text="${property.adresse}"></td>
+            <td th:text="${property.prix}"></td>
+            <td th:text="${property.nombreDeChambres}"></td>
+            <td th:text="${property.nombreDeBains}"></td>
+            <td th:text="${property.superficie}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Include Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

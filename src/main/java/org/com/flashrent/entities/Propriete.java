@@ -34,5 +34,20 @@ public class Propriete {
     @ManyToOne
     private Locataire locataire;
 
-    // Getters and Setters
+    // Constructeur par défaut de JPA
+    public Propriete() {}
+
+    // Constructeur
+    public Propriete(String nom, String description, String adresse, int prix, int nombreDeChambres, int nombreDeBains, int superficie, boolean fumeur, boolean animauxDomestiques, Proprietaire proprietaire) {
+        this.nom = nom;
+        this.description = description;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.nombreDeChambres = nombreDeChambres;
+        this.nombreDeBains = nombreDeBains;
+        this.superficie = superficie;
+        this.fumeur = fumeur;
+        this.animauxDomestiques = animauxDomestiques;
+        this.proprietaire = proprietaire;
+    }
 }
