@@ -69,6 +69,17 @@ public class ProprieteService {
         return proprieteRepository.findAll();
     }
 
+    public Propriete getPropriete(Long id) {
+        return proprieteRepository.findById(id).orElse(null);
+    }
+
+    public Propriete updatePropriete(Long id, Propriete updatedPropriete) {
+        Propriete originalPropriete = this.getProprieteById(id);
+
+        return proprieteRepository.save(originalPropriete);
+    }
+
+
 
 
 }

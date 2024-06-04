@@ -9,10 +9,83 @@
 <body>
 <div class="container mt-5">
     <h1>Locataire Dashboard</h1>
-    <div class="list-group mt-4">
-        <a th:href="@{/properties-all}" class="list-group-item list-group-item-action">Search Properties</a>
-        <a th:href="@{/submission-form}" class="list-group-item list-group-item-action">Submit Form</a>
+
+    <!-- Horizontal filter section -->
+    <div class="d-flex justify-content-between mb-5">
+        <!-- Each dropdown corresponds to a filter criterion -->
+        <select class="custom-select" name="nom" onchange="location = this.value;">
+            <option selected>Nom</option>
+            <!-- Options will be filled dynamically-->
+        </select>
+
+        <select class="custom-select" name="prix" onchange="location = this.value;">
+            <option selected>Prix</option>
+            <!-- Options will be filled dynamically-->
+        </select>
+
+        <select class="custom-select" name="nombreDeChambres" onchange="location = this.value;">
+            <option selected>Chambres</option>
+            <!-- Options will be filled dynamically-->
+        </select>
+
+        <select class="custom-select" name="nombreDeBains" onchange="location = this.value;">
+            <option selected>Salle de bain</option>
+            <!-- Options will be filled dynamically-->
+        </select>
+
+        <select class="custom-select" name="superficie" onchange="location = this.value;">
+            <option selected>Superficie</option>
+            <!-- Options will be filled dynamically-->
+        </select>
+
+        <select class="custom-select" name="fumeur" onchange="location = this.value;">
+            <option selected>Fumeur</option>
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+        </select>
+
+        <select class="custom-select" name="animauxDomestiques" onchange="location = this.value;">
+            <option selected>Animaux domestiques</option>
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+        </select>
     </div>
+
+    <!-- Properties Table -->
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Adresse</th>
+            <th>Prix</th>
+            <th>Nombre de chambres</th>
+            <th>Nombre de bains</th>
+            <th>Superficie</th>
+            <th>Fumeur</th>
+            <th>Animaux domestiques</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="propriete : ${listProprietes}">
+            <td th:text="${propriete.nom}"></td>
+            <td th:text="${propriete.description}"></td>
+            <td th:text="${propriete.adresse}"></td>
+            <td th:text="${propriete.prix}"></td>
+            <td th:text="${propriete.nombreDeChambres}"></td>
+            <td th:text="${propriete.nombreDeBains}"></td>
+            <td th:text="${propriete.superficie}"></td>
+            <td th:text="${propriete.fumeur ? 'Oui' : 'Non'}"></td>
+            <td th:text="${propriete.animauxDomestiques ? 'Oui' : 'Non'}"></td>
+            <td>
+                <a href="/locataire/soumission"  class="btn btn-info">Postuler</a>
+
+                <!-- Ajoutez d'autres actions ici si nécessaire -->
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <!-- Include Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,18 +1,24 @@
 package org.com.flashrent.controllers;
 
 import org.com.flashrent.entities.Locataire;
+import org.com.flashrent.entities.Propriete;
 import org.com.flashrent.services.LocataireService;
+import org.com.flashrent.services.ProprieteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/locataire")
 public class LocataireController {
     private final LocataireService locataireService;
+    private final ProprieteService proprieteService;
 
-    public LocataireController(LocataireService locataireService) {
+    public LocataireController(LocataireService locataireService, ProprieteService proprieteService) {
         this.locataireService = locataireService;
+        this.proprieteService = proprieteService;
     }
 
     @GetMapping("/login")
@@ -32,7 +38,6 @@ public class LocataireController {
         }
     }
 
-
     @GetMapping("/register")
     public String showLocataireRegistrationForm(Model model) {
         model.addAttribute("locataire", new Locataire());
@@ -44,9 +49,16 @@ public class LocataireController {
         locataireService.save(locataire);
         return "redirect:/locataire/login";
     }
+
     @GetMapping("/dashboard")
-    public String showLocataireDashboard() {
+    public String showDashboard(Model model) {
+        List<Propriete> listProprietes = proprieteService.findAll();
+        model.addAttribute("listProprietes", listProprietes);
         return "locataire/dashboard";
+    }
+    @GetMapping("/soumission")
+    public String showSoumission() {
+        return "locataire/soumission";
     }
 
     // Other methods for locataire dashboard, etc.
