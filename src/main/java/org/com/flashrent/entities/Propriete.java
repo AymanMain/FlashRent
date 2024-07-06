@@ -25,9 +25,7 @@ public class Propriete {
     private int superficie;
     private boolean fumeur;
     private boolean animauxDomestiques;
-
-    @OneToMany(mappedBy = "propriete", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images;
+    private String imageName;
 
     @ManyToOne
     private Proprietaire proprietaire;
@@ -54,10 +52,5 @@ public class Propriete {
         this.animauxDomestiques = animauxDomestiques;
         this.proprietaire = proprietaire;
     }
-    public String getImageBase64() {
-        if (images != null && !images.isEmpty()) {
-            return images.get(0).getImageBase64();
-        }
-        return null;
-    }
+
 }

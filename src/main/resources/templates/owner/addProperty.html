@@ -9,7 +9,7 @@
 <body>
 <div class="container mt-5">
     <h1>Add Property</h1>
-    <form th:action="@{/owner/add}" th:object="${propriete}" method="post" enctype = "multipart/form-data">
+    <form th:action="@{/owner/add}" th:object="${propriete}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nom">Nom</label>
             <input type="text" class="form-control" id="nom" th:field="*{nom}" placeholder="Enter property name">
@@ -46,10 +46,7 @@
             <input type="checkbox" class="form-check-input" id="animauxDomestiques" th:field="*{animauxDomestiques}">
             <label class="form-check-label" for="animauxDomestiques">Animaux Domestiques</label>
         </div>
-        <div class="form-group">
-            <label for="photos">Photos</label>
-            <input type="file" class="form-control-file" id="photos" name="photos" multiple>
-        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

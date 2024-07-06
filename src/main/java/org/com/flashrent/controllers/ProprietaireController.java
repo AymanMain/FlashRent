@@ -69,4 +69,10 @@ public class ProprietaireController {
         model.addAttribute("listProprietes", listProprietes);
         return "owner/dashboard";
     }
+    @GetMapping("/submission-list")
+    public String showSubmissionList(Model model) {
+
+
+        return "owner/submission-list"; // Ensure this view exists
+    }
 }

@@ -26,6 +26,7 @@
             <th>Superficie</th>
             <th>Fumeur</th>
             <th>Animaux domestiques</th>
+
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -39,13 +40,15 @@
             <td th:text="${propriete.nombreDeBains}"></td>
             <td th:text="${propriete.superficie}"></td>
             <td th:text="${propriete.fumeur ? 'Oui' : 'Non'}"></td>
-            <td th:text="${propriete.animauxDomestiques ? 'Oui' : 'Non'}"></td>
+            <td th:text="${propriete.animauxDomestiques ? 'Oui' : 'Non'}">
+
+
             <td>
                 <a th:href="@{/propriete/edit/{id}(id=${propriete.id})}" class="btn btn-default btn-primary mb-1">Modifier</a>
                 <form th:action="@{/propriete/delete/{id}(id=${propriete.id})}" th:method="post" style="display: inline">
                     <input type="submit" value="Supprimer" class="btn btn-danger mb-1" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette propriété ?')">
                 </form>
-                <a th:href="@{/propriete/submissions/{id}(id=${propriete.id})}" class="btn btn-dark mb-1">Consulter les Soumissions</a>
+
             </td>
         </tr>
         </tbody>

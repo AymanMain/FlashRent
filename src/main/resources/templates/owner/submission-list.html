@@ -2,14 +2,65 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Submission List</title>
+    <title>Liste des Soumissions</title>
+    <!-- Inclusion de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Submission List</h1>
-<ul>
-    <li>Submission 1</li>
-    <li>Submission 2</li>
-    <!-- Add more submissions dynamically -->
-</ul>
+<div class="container mt-5">
+    <h1>Liste des Soumissions</h1>
+
+    <!-- Tableau pour afficher les soumissions -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Propriété</th>
+            <th>Nom du Locataire</th>
+            <th>Offre</th>
+            <th>Situation Professionnelle</th>
+            <th>Situation Familiale</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Exemple statique -->
+        <tr>
+            <td>Villa Deluxe</td>
+            <td>aymelk</td>
+            <td>2222</td>
+            <td>Étudiant</td>
+            <td>Célibataire</td>
+            <td>0612345678</td>
+            <td>
+                <form method="post" style="display: inline">
+                    <input type="submit" value="Accepter" class="btn btn-success">
+                </form>
+                <form method="post" style="display: inline">
+                    <input type="submit" value="Rejeter" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir rejeter cette soumission ?')">
+                </form>
+            </td>
+        </tr>
+        <!-- Boucle sur les soumissions -->
+        <tr th:each="soumission : ${listSoumissions}">
+            <td th:text="${soumission.locataire.nom}"></td>
+            <td th:text="${soumission.offre}"></td>
+            <td th:text="${soumission.situationProfessionnelle}"></td>
+            <td th:text="${soumission.situationFamiliale}"></td>
+            <td th:text="${soumission.message}"></td>
+            <td>
+                <form method="post" style="display: inline">
+                    <input type="submit" value="Accepter" class="btn btn-success">
+                </form>
+                <form method="post" style="display: inline">
+                    <input type="submit" value="Rejeter" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir rejeter cette soumission ?')">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Inclusion de Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

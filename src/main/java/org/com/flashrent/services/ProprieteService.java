@@ -34,8 +34,20 @@ public class ProprieteService {
         return proprieteRepository.save(propriete);
     }
 
-    public Propriete updatePropriete(Propriete propriete) {
-        return proprieteRepository.save(propriete);
+    public Propriete updatePropriete(Long id, Propriete updatedPropriete) {
+        Propriete originalPropriete = getProprieteById(id);
+        originalPropriete.setNom(updatedPropriete.getNom());
+        originalPropriete.setDescription(updatedPropriete.getDescription());
+        originalPropriete.setAdresse(updatedPropriete.getAdresse());
+        originalPropriete.setPrix(updatedPropriete.getPrix());
+        originalPropriete.setNombreDeChambres(updatedPropriete.getNombreDeChambres());
+        originalPropriete.setNombreDeBains(updatedPropriete.getNombreDeBains());
+        originalPropriete.setSuperficie(updatedPropriete.getSuperficie());
+        originalPropriete.setFumeur(updatedPropriete.isFumeur());
+        originalPropriete.setAnimauxDomestiques(updatedPropriete.isAnimauxDomestiques());
+        // Set other properties as needed
+
+        return proprieteRepository.save(originalPropriete);
     }
 
     public void deletePropriete(Long id) {
@@ -73,11 +85,7 @@ public class ProprieteService {
         return proprieteRepository.findById(id).orElse(null);
     }
 
-    public Propriete updatePropriete(Long id, Propriete updatedPropriete) {
-        Propriete originalPropriete = this.getProprieteById(id);
 
-        return proprieteRepository.save(originalPropriete);
-    }
 
 
 
